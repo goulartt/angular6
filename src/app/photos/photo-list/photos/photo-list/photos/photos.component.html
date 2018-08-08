@@ -2,10 +2,16 @@
   Sorry, no photo
 </p>
 <ol class="list-unstyled">
-  <li *ngFor="let cols of rows" class="row">
-    <div *ngFor="let photo of cols" class="col-4">
-      <app-photo [description]="photo.description" [url]="photo.url">
-      </app-photo>
+  <li *ngFor="let cols of rows" class="row no-gutters">
+    <div *ngFor="let photo of cols" class="col-4" dark-on-hover>
+      <ap-card [title]="photo.title">
+        <app-photo [description]="photo.description" [url]="photo.url">
+        </app-photo>
+        <div class="text-center p-1">
+          <i aria-hidden="true" class="fa fa-heart-o fa-1x mr-2">{{ photo.likes }}</i>
+          <i aria-hidden="true" class="fa fa-comment-o fa-1x mr-2">{{ photo.comments }}</i>
+        </div>
+      </ap-card>
     </div>
   </li>
 </ol>
